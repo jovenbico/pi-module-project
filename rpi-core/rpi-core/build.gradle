@@ -1,9 +1,0 @@
-apply plugin: 'java'
-
-repositories {
-}
-
-dependencies {
-}
-
-version = '1.0.0-SNAPSHOT'

@@ -1,10 +1,4 @@
-/*
-// To declare projects as part of a multi-project build use the 'include' method
-include 'shared'
-include 'api'
-include 'services:webservice'
-*/
 
-include 'rpi-core'
+include 'rpi-core', 'rpi-service', 'rpi-scheduler'
 
 rootProject.name = 'pi-module-project'

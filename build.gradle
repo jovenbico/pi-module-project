@@ -1,3 +1,14 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    
+    group = 'com.bicjo.rpi'
+    version = '1.0.0-SNAPSHOT'
+    
+    sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
 subprojects {
 	apply plugin: 'java'
 
@@ -7,6 +18,7 @@ subprojects {
 	
 	dependencies {
 	    compile 'org.slf4j:slf4j-api:1.7.13'
+	    compile 'org.apache.logging.log4j:log4j-core:2.6.2'
 	
 	    testCompile 'junit:junit:4.12'
 	}
@@ -14,3 +26,24 @@ subprojects {
 	version = '1.0.0-SNAPSHOT'
 }
 
+project(':rpi-service') {
+	dependencies {
+		compile project(':rpi-core')
+		compile 'com.pi4j:pi4j-core:1.0'
+		compile 'org.apache.httpcomponents:httpclient:4.5.2'
+		compile 'com.google.code.gson:gson:2.6.2'
+	}
+}
+
+project(':rpi-scheduler') {
+	dependencies {
+		compile project(':rpi-service')
+	}
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
