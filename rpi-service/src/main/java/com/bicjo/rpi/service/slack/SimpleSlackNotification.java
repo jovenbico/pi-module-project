@@ -2,6 +2,7 @@ package com.bicjo.rpi.service.slack;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpEntity;
@@ -19,7 +20,18 @@ import com.google.gson.Gson;
 public class SimpleSlackNotification implements SlackNotification {
 
 	private final Logger LOG = LogManager.getLogger(getClass());
-	private final String WEBHOOK_URL = "https://hooks.slack.com/services/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";
+	// TODO make the WEBHOOK_URL configurable value
+	private final String WEBHOOK_URL = "???";
+
+	@Override
+	public void send(List<String> messages) {
+		String message = "";
+		for (String m : messages) {
+			message += m + "\n";
+		}
+
+		send(message);
+	}
 
 	@Override
 	public void send(String message) {

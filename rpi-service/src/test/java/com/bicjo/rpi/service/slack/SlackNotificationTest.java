@@ -1,10 +1,10 @@
 package com.bicjo.rpi.service.slack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.bicjo.rpi.service.slack.SimpleSlackNotification;
-import com.bicjo.rpi.service.slack.SlackNotification;
 
 public class SlackNotificationTest extends Assert {
 
@@ -17,6 +17,10 @@ public class SlackNotificationTest extends Assert {
 		String message = "hello world";
 		slack.send(message);
 
+		List<String> messages = new ArrayList<>();
+		messages.add("abcd");
+		messages.add("xyz");
+		slack.send(messages);
 	}
 
 }
