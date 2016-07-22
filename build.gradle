@@ -1,0 +1,16 @@
+subprojects {
+	apply plugin: 'java'
+
+	repositories {
+	    mavenCentral()
+	}
+	
+	dependencies {
+	    compile 'org.slf4j:slf4j-api:1.7.13'
+	
+	    testCompile 'junit:junit:4.12'
+	}
+	
+	version = '1.0.0-SNAPSHOT'
+}
+
